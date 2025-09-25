@@ -1,6 +1,6 @@
 ## YamlMime:NoSQLQueryReference
 type: operator
-name: regex
+name: $regex
 description: |-
   The `$regex` operator is used to perform pattern matching with regular expressions.
 summary: |-
