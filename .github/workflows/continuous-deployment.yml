@@ -23,7 +23,7 @@ jobs:
         run: npm ci
       - name: Build Next.js static site
         env:
-          NEXT_BASE_PATH: ${{ github.repository }}
+          NEXT_BASE_PATH: ${{ github.event.repository.name }}
         run: npm run build
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
