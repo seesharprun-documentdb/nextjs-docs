@@ -1,7 +1,8 @@
-
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import Link from 'next/link';
+import type { NoSQLQueryReference } from '../types/reference';
 
 type ReferencePage = {
   name: string;
@@ -20,7 +21,7 @@ function getReferencePages(): ReferencePage[] {
   }
   walk(root);
   return files.map(file => {
-    const data = yaml.load(fs.readFileSync(file, 'utf8')) as any;
+    const data = yaml.load(fs.readFileSync(file, 'utf8')) as NoSQLQueryReference;
     const slug = path.relative(root, file).replace(/\\/g, '/').replace(/\.yml$/, '');
     return {
       name: data.name || slug,
@@ -49,9 +50,9 @@ export default function Home() {
               <td className="px-4 py-2 font-semibold text-gray-900">{page.name}</td>
               <td className="px-4 py-2 text-gray-900">{page.description}</td>
               <td className="px-4 py-2 text-center">
-                <a className="text-blue-800 underline font-bold" href={`/reference/${page.slug}`}>
+                <Link className="text-blue-800 underline font-bold" href={`/reference/${page.slug}`}>
                   <code>/reference/{page.slug}</code>
-                </a>
+                </Link>
               </td>
             </tr>
           ))}
