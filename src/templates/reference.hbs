@@ -1,0 +1,38 @@
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow mt-4">
+  <h1 class="text-3xl font-bold mb-2 text-gray-900"><code>{{name}}</code></h1>
+  <p class="text-gray-900 mb-2">{{description}}</p>
+  <p class="text-gray-800 mb-6">{{summary}}</p>
+  <h2 class="text-xl font-semibold mt-8 mb-2 text-gray-900">Syntax</h2>
+  <pre class="bg-gray-100 rounded p-4 mb-6"><code class="language-documentdb text-gray-900 text-sm">{{syntax}}</code></pre>
+  <h2 class="text-xl font-semibold mb-2 text-gray-900">Parameters</h2>
+  <table class="min-w-full border border-gray-300 rounded overflow-hidden mb-8">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="px-4 py-2"></th>
+        <th class="px-4 py-2 text-left text-gray-900">Type</th>
+        <th class="px-4 py-2 text-left text-gray-900">Description</th>
+        <th class="px-4 py-2 text-left text-gray-900">Required</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#parameters}}
+      <tr class="border-t border-gray-300">
+        <td class="px-4 py-2 font-semibold text-gray-900">
+          <code>{{name}}</code>
+        </td>
+        <td class="px-4 py-2 text-gray-900">
+          <code>{{type}}</code>
+        </td>
+        <td class="px-4 py-2 text-gray-900 text-sm">
+          {{description}}
+        </td>
+        <td class="px-4 py-2 text-gray-900 text-center">
+          {{#required}}
+          <span role="img" aria-label="Yes">✅</span>
+          {{/required}}
+        </td>
+      </tr>
+      {{/parameters}}
+    </tbody>
+  </table>
+</div>
